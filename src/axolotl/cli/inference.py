@@ -102,6 +102,7 @@ def do_inference(
                 chat_template=chat_template_str,
                 tokenize=True,
                 return_dict=True,
+                enable_thinking=False,
             )
         else:
             batch = tokenizer(prompt, return_tensors="pt", add_special_tokens=True)
@@ -190,6 +191,7 @@ def do_inference_gradio(
                 chat_template=chat_template_str,
                 tokenize=True,
                 return_dict=True,
+                enable_thinking=False,
             )
         else:
             batch = tokenizer(prompt, return_tensors="pt", add_special_tokens=True)

@@ -6,9 +6,7 @@ from axolotl.utils.chat_templates import extract_chat_template_args, get_chat_te
 from axolotl.utils.schemas.utils import handle_legacy_message_fields_logic
 
 
-def default(
-    cfg, dataset_idx=0, **kwargs
-):  # pylint: disable=possibly-unused-variable,unused-argument
+def default(cfg, dataset_idx=0, **kwargs):  # pylint: disable=possibly-unused-variable,unused-argument
     ds_cfg = cfg["datasets"][dataset_idx]
     ds_cfg = handle_legacy_message_fields_logic(ds_cfg)
 
@@ -69,6 +67,7 @@ def default(
             add_generation_prompt=True,
             chat_template=chat_template_string,
             tokenize=False,
+            enable_thinking=False,
         )
 
         result["chosen"] = tokenizer.apply_chat_template(
@@ -76,6 +75,7 @@ def default(
             add_generation_prompt=False,
             chat_template=chat_template_string,
             tokenize=False,
+            enable_thinking=False,
         )
         chosen_strip_index = result["chosen"].find(chosen["content"])
         result["chosen"] = result["chosen"][chosen_strip_index:].rstrip()
@@ -85,6 +85,7 @@ def default(
             add_generation_prompt=False,
             chat_template=chat_template_string,
             tokenize=False,
+            enable_thinking=False,
         )
         rejected_strip_index = result["rejected"].find(rejected["content"])
         result["rejected"] = result["rejected"][rejected_strip_index:].rstrip()

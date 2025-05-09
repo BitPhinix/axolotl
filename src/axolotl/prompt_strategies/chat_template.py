@@ -85,6 +85,7 @@ class ChatTemplatePrompter(Prompter):
                 chat_template=self.chat_template,
                 tokenize=False,
                 add_generation_prompt=add_generation_prompt,
+                enable_thinking=False,
             )
             batch = self.processor(
                 text=text,
@@ -103,6 +104,7 @@ class ChatTemplatePrompter(Prompter):
             conversation,
             add_generation_prompt=add_generation_prompt,
             chat_template=self.chat_template,
+            enable_thinking=False,
         )
 
     def get_offsets_for_train_detail(

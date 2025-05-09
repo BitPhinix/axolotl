@@ -56,6 +56,7 @@ class MultiModalChatDataCollator(DataCollatorMixin):
                 padding=True,
                 return_dict=True,
                 chat_template=self.processing_strategy.chat_template,
+                enable_thinking=False,
             )
 
             # TODO: Check if need handling for len(input_ids) > sequence_len
